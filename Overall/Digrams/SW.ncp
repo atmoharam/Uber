@@ -1,0 +1,612 @@
+<Project>
+  <Name>Untitled</Name>
+  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
+    <Name>SW</Name>
+    <Language>CSharp</Language>
+    <Entities>
+      <Entity type="Class">
+        <Name>SystemData</Name>
+        <Access>Public</Access>
+        <Location left="862" top="139" />
+        <Size width="413" height="672" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">ArrayList&lt;Person&gt; Passengers</Member>
+        <Member type="Field">ArrayList&lt;Ride&gt; Rides</Member>
+        <Member type="Field">ArrayList&lt;DriverService&gt; Drivers</Member>
+        <Member type="Field">Notify notifyDriver</Member>
+        <Member type="Field">private static SystemData instence</Member>
+        <Member type="Field">ArrayList&lt;CaptinSetPriceEvent&gt; CaptinSetEvent</Member>
+        <Member type="Field">ArrayList&lt;UserAcceptEvent&gt; userAcceptEvents</Member>
+        <Member type="Field">ArrayList&lt;LocationEvent&gt; locationEvents</Member>
+        <Member type="Field">ArrayList&lt;String&gt; discountArea</Member>
+        <Member type="Field">HashMap&lt;String,ArrayList&lt;Ride&gt;&gt; RideGroup</Member>
+        <Member type="Field">Discount discountOpption</Member>
+        <Member type="Method">ArrayList&lt;Ride&gt; getRidesWithName(String source)</Member>
+        <Member type="Method">public static SystemData getInstence()</Member>
+        <Member type="Method">UserInfo getPassenger(String name)</Member>
+        <Member type="Method">DriverService getDriver(String name)</Member>
+        <Member type="Method">ArrayList &lt; Ride &gt; getRides()</Member>
+        <Member type="Method">void DeletePassenger(String name)</Member>
+        <Member type="Method">void DeleteDriver(String name)</Member>
+        <Member type="Method">void AddRide(Ride ride)</Member>
+        <Member type="Method">DriverService getDriverById(String userId)</Member>
+        <Member type="Method">Ride getRideById(String RideId)</Member>
+        <Member type="Method">ArrayList&lt; DriverService &gt; WaitingDrivers()</Member>
+        <Member type="Method">ArrayList&lt; DriverService &gt; DriversActive()</Member>
+        <Member type="Method">ArrayList &lt; CaptinSetPriceEvent &gt; getCaptinSetEvent()</Member>
+        <Member type="Method">ArrayList &lt; UserAcceptEvent &gt; getUserAcceptEvents()</Member>
+        <Member type="Method">ArrayList &lt; LocationEvent &gt; getLocationEvents()</Member>
+        <Member type="Method">ArrayList&lt;LocationEvent&gt; SourceEvent()</Member>
+        <Member type="Method">ArrayList&lt;LocationEvent&gt; DistEvent()</Member>
+        <Member type="Method">public boolean checkDiscount(String area)</Member>
+        <Member type="Method">public void Grouping(Ride r)</Member>
+        <Member type="Method">public boolean isHoliday(String date)</Member>
+        <Member type="Method">public void Discount(Ride ride)</Member>
+        <Member type="Method">public boolean checkDataPassengers(String userName, String Password)</Member>
+        <Member type="Method">public boolean checkDataDrivers(String userName, String Password)</Member>
+        <Member type="Method">public void NewMethod()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Ride</Name>
+        <Access>Public</Access>
+        <Location left="1760" top="74" />
+        <Size width="283" height="332" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">String source</Member>
+        <Member type="Field">String distination</Member>
+        <Member type="Field">String userId</Member>
+        <Member type="Field">String RideId</Member>
+        <Member type="Field">String RideDate</Member>
+        <Member type="Field">ArrayList&lt; Offer &gt; offers</Member>
+        <Member type="Field">boolean AriveToSource</Member>
+        <Member type="Field">boolean AriveToDis</Member>
+        <Member type="Field">int numOfPassengers</Member>
+        <Member type="Method">public void AddOffer(double price, String driverID)</Member>
+        <Member type="Method">public ArrayList &lt; Offer &gt; getOffers()</Member>
+        <Member type="Method">public boolean isAriveToSource()</Member>
+        <Member type="Method">public void setAriveToSource(boolean ariveToSource)</Member>
+        <Member type="Method">public boolean isAriveToDis()</Member>
+        <Member type="Method">public Offer getDriverOffer(String driverId)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Person</Name>
+        <Access>Public</Access>
+        <Location left="1555" top="301" />
+        <Size width="162" height="222" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">protected String userName</Member>
+        <Member type="Field">protected String userPassword</Member>
+        <Member type="Field">protected String userEmail</Member>
+        <Member type="Field">protected String userPhoneNumber</Member>
+        <Member type="Field">protected String userId</Member>
+        <Member type="Field">protected Boolean AccountState</Member>
+        <Member type="Field">protected double userBalance</Member>
+        <Member type="Field">protected String birthDay</Member>
+        <Modifier>Abstract</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>UserInfo</Name>
+        <Access>Public</Access>
+        <Location left="1348" top="366" />
+        <Size width="162" height="102" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">boolean firstTime</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>DriverInfo</Name>
+        <Access>Public</Access>
+        <Location left="66" top="430" />
+        <Size width="162" height="145" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public void add(DriverService person)</Member>
+        <Member type="Method">public DriverService get(String name)</Member>
+        <Member type="Method">public List &lt; DriverService &gt; getAll()</Member>
+        <Member type="Method">public boolean delete(String name)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>EventSystem</Name>
+        <Access>Public</Access>
+        <Location left="300" top="388" />
+        <Size width="162" height="128" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private String eventName</Member>
+        <Member type="Field">private String Time</Member>
+        <Member type="Method">public abstract void AddEvent()</Member>
+        <Modifier>Abstract</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>DriverInterface</Name>
+        <Access>Public</Access>
+        <Location left="127" top="130" />
+        <Size width="227" height="212" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">void add(DriverService person)</Member>
+        <Member type="Method">DriverService get(String name)</Member>
+        <Member type="Method">List &lt; DriverService &gt; getAll()</Member>
+        <Member type="Method">boolean delete(String name)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>UserAcceptEvent</Name>
+        <Access>Public</Access>
+        <Location left="568" top="249" />
+        <Size width="162" height="112" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private String userId</Member>
+        <Member type="Method">public void AddEvent()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>LocationEvent</Name>
+        <Access>Public</Access>
+        <Location left="568" top="388" />
+        <Size width="162" height="145" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private String userId</Member>
+        <Member type="Field">private String driverId</Member>
+        <Member type="Field">private boolean state</Member>
+        <Member type="Method">public void AddEvent()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>CaptinSetPriceEvent</Name>
+        <Access>Public</Access>
+        <Location left="568" top="561" />
+        <Size width="162" height="128" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private String captinID</Member>
+        <Member type="Field">private double price</Member>
+        <Member type="Method">public void AddEvent()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Discount</Name>
+        <Access>Public</Access>
+        <Location left="1299" top="1020" />
+        <Size width="162" height="112" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">protected double price</Member>
+        <Member type="Method">public abstract void discount(Ride r)</Member>
+        <Modifier>Abstract</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>DiscountDecorator</Name>
+        <Access>Public</Access>
+        <Location left="1530" top="1098" />
+        <Size width="162" height="96" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public abstract double getPrice()</Member>
+        <Modifier>Abstract</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>BirthDayDiscount</Name>
+        <Access>Public</Access>
+        <Location left="1148" top="1261" />
+        <Size width="162" height="111" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">Discount dis</Member>
+        <Member type="Method">public void discount(Ride r)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>AdminDiscount</Name>
+        <Access>Public</Access>
+        <Location left="1341" top="1261" />
+        <Size width="162" height="111" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">Discount dis</Member>
+        <Member type="Method">public void discount(Ride r)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>firstTimeDiscount</Name>
+        <Access>Public</Access>
+        <Location left="1530" top="1261" />
+        <Size width="162" height="111" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">Discount dis</Member>
+        <Member type="Method">public void discount(Ride r)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>puplicHolidayDiscount</Name>
+        <Access>Public</Access>
+        <Location left="1731" top="1261" />
+        <Size width="162" height="111" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">Discount dis</Member>
+        <Member type="Method">public void discount(Ride r)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>rideNumberDiscount</Name>
+        <Access>Public</Access>
+        <Location left="1916" top="1261" />
+        <Size width="162" height="111" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">Discount dis</Member>
+        <Member type="Method">public void discount(Ride r)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>UserInterface</Name>
+        <Access>Public</Access>
+        <Location left="2335" top="447" />
+        <Size width="224" height="185" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">void add(UserInfo person)</Member>
+        <Member type="Method">UserInfo get(String name)</Member>
+        <Member type="Method">List &lt;UserInfo&gt; getAll()</Member>
+        <Member type="Method">boolean delete(String name)</Member>
+        <Member type="Method">void RequestRide(Ride ride)</Member>
+        <Member type="Method">public ArrayList &lt;Ride&gt; showRequests()</Member>
+        <Modifier>Abstract</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>UserService</Name>
+        <Access>Public</Access>
+        <Location left="2323" top="678" />
+        <Size width="236" height="230" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private boolean firstTime</Member>
+        <Member type="Method">public void add(UserInfo person)</Member>
+        <Member type="Method">public UserInfo get(String name)</Member>
+        <Member type="Method">public List &lt; UserInfo &gt; getAll()</Member>
+        <Member type="Method">public boolean delete(String name)</Member>
+        <Member type="Method">public void RequestRide(Ride ride)</Member>
+        <Member type="Method">public void RateDriver(int rate, String driverId)</Member>
+        <Member type="Method">public float checkAverage(String driverId)</Member>
+        <Member type="Method">public void AcceptOffer(String RideId, String driverId, String userId)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Offer</Name>
+        <Access>Public</Access>
+        <Location left="2072" top="422" />
+        <Size width="196" height="133" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private String driverId</Member>
+        <Member type="Field">private double price</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>NotifyInterface</Name>
+        <Access>Public</Access>
+        <Location left="1348" top="867" />
+        <Size width="369" height="94" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">ArrayList&lt;Ride&gt; notify(ArrayList&lt;String&gt; drivers, String driverId)</Member>
+        <Modifier>Abstract</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Notify</Name>
+        <Access>Public</Access>
+        <Location left="1791" top="867" />
+        <Size width="382" height="94" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">ArrayList&lt;Ride&gt; notify(ArrayList&lt;String&gt; drivers, String driverId)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>DriverService</Name>
+        <Access>Public</Access>
+        <Location left="1629" top="542" />
+        <Size width="353" height="298" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">String licenceId</Member>
+        <Member type="Field">String nationalId</Member>
+        <Member type="Field">ArrayList&lt;String&gt; Fav</Member>
+        <Member type="Field">ArrayList&lt;Integer&gt; Rating</Member>
+        <Member type="Field">String currArea</Member>
+        <Member type="Field">boolean inTrip</Member>
+        <Member type="Method">void addRate(int rate)</Member>
+        <Member type="Method">float calculate_Rate()</Member>
+        <Member type="Method">public ArrayList&lt; Ride &gt; getNotifcation()</Member>
+        <Member type="Method">public void setPrice(String RideId, String driverId, double price)</Member>
+        <Member type="Method">public void arrivedToSource(String RideId, String driverId)</Member>
+        <Member type="Method">public void arrivedToDis(String RideId, String driverId)</Member>
+        <Member type="Method">public void setCurrArea(String currArea)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Admin</Name>
+        <Access>Public</Access>
+        <Location left="690" top="933" />
+        <Size width="344" height="332" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">public String admin_Name</Member>
+        <Member type="Field">public String admin_Password</Member>
+        <Member type="Field">public static Admin admin</Member>
+        <Member type="Method">public static Admin getinstence()</Member>
+        <Member type="Method">public void verfiyDriver(String driverId)</Member>
+        <Member type="Method">public void susbendDriver(String driverId)</Member>
+        <Member type="Method">public void susbendUser(String UserId)</Member>
+        <Member type="Method">ArrayList&lt; DriverService &gt; WaitedDrivers()</Member>
+        <Member type="Method">ArrayList&lt; DriverService &gt; ActiveDrivers()</Member>
+        <Member type="Method">ArrayList&lt; UserInfo &gt; Passengers()</Member>
+        <Member type="Method">ArrayList&lt; CaptinSetPriceEvent &gt; CaptinSetPriceEvents()</Member>
+        <Member type="Method">ArrayList&lt; UserAcceptEvent &gt; UserAcceptEvents()</Member>
+        <Member type="Method">ArrayList&lt; LocationEvent &gt; SourceEvents()</Member>
+        <Member type="Method">ArrayList&lt; LocationEvent &gt; DisEvents()</Member>
+        <Member type="Method">void AddDiscountArea(String area)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>AdminController</Name>
+        <Access>Public</Access>
+        <Location left="239" top="969" />
+        <Size width="342" height="281" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">Admin admin</Member>
+        <Member type="Method">public void susbendUser(data userId)</Member>
+        <Member type="Method">public void susbendDriver(data DriverId)</Member>
+        <Member type="Method">public void verfiyDriver(data DriverId)</Member>
+        <Member type="Method">public ArrayList&lt; DriverService &gt; watiedDriver()</Member>
+        <Member type="Method">public ArrayList&lt; DriverService &gt; ActiceDrivers()</Member>
+        <Member type="Method">public ArrayList&lt; UserInfo &gt; getPassengers()</Member>
+        <Member type="Method">public ArrayList&lt; CaptinSetPriceEvent &gt; getCaptinSetPriceEvents()</Member>
+        <Member type="Method">public ArrayList&lt; UserAcceptEvent &gt; getUserAcceptOfferEvents()</Member>
+        <Member type="Method">public ArrayList&lt; LocationEvent &gt; getArriveSourceEvents()</Member>
+        <Member type="Method">public ArrayList&lt; LocationEvent &gt; getArriveDisEvents()</Member>
+        <Member type="Method">public void discountArea(String area)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>DriverController</Name>
+        <Access>Public</Access>
+        <Location left="28" top="638" />
+        <Size width="276" height="213" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">DriverInfo driver</Member>
+        <Member type="Method">public void register(DriverService person)</Member>
+        <Member type="Method">public boolean addToFavourate(data area)</Member>
+        <Member type="Method">public ArrayList&lt;Integer&gt; getRating(data driverId)</Member>
+        <Member type="Method">public ArrayList&lt; Ride &gt; Notify(data driverId)</Member>
+        <Member type="Method">public ArrayList&lt;Ride&gt; listRides(data driverId)</Member>
+        <Member type="Method">public void SuggestPrice(data info)</Member>
+        <Member type="Method">public boolean login(data info)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>UserController</Name>
+        <Access>Public</Access>
+        <Location left="2323" top="980" />
+        <Size width="248" height="213" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">UserService passengers</Member>
+        <Member type="Method">public void register(UserInfo person)</Member>
+        <Member type="Method">public boolean login(data info)</Member>
+        <Member type="Method">public void AddRate(data info)</Member>
+        <Member type="Method">public float checkRate(data driverId)</Member>
+        <Member type="Method">public ArrayList &lt; Offer &gt; showOffers(data Ride)</Member>
+        <Member type="Method">public void acceptOffer(data info)</Member>
+        <Member type="Method">public void addRequest(Ride req)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+    </Entities>
+    <Relationships>
+      <Relationship type="Association" first="0" second="1">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>1312</X>
+          <Y>254</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Aggregation</AssociationType>
+      </Relationship>
+      <Relationship type="Generalization" first="3" second="2">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>1535</X>
+          <Y>420</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>1513</X>
+          <Y>420</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Generalization" first="4" second="6">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Association" first="0" second="8">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Aggregation</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="0" second="9">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Aggregation</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="0" second="3">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Aggregation</AssociationType>
+      </Relationship>
+      <Relationship type="Generalization" first="11" second="10">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="False">
+          <X>1486</X>
+          <Y>1066</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Generalization" first="12" second="11">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Generalization" first="13" second="11">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Association" first="0" second="10">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>1230</X>
+          <Y>1072</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Aggregation</AssociationType>
+      </Relationship>
+      <Relationship type="Generalization" first="14" second="11">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Generalization" first="15" second="11">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Generalization" first="16" second="11">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Association" first="0" second="7">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Aggregation</AssociationType>
+      </Relationship>
+      <Relationship type="Generalization" first="7" second="5">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>543</X>
+          <Y>352</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>487</X>
+          <Y>468</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Generalization" first="8" second="5">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="False">
+          <X>487</X>
+          <Y>468</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Generalization" first="9" second="5">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>527</X>
+          <Y>596</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>503</X>
+          <Y>468</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Generalization" first="18" second="17">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>2445</X>
+          <Y>652</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>2445</X>
+          <Y>657</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Association" first="1" second="19">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>1968</X>
+          <Y>448</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Aggregation</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="0" second="20">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>1300</X>
+          <Y>732</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Aggregation</AssociationType>
+      </Relationship>
+      <Relationship type="Generalization" first="21" second="20">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>1760</X>
+          <Y>921</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>1742</X>
+          <Y>921</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Generalization" first="22" second="2">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>1796</X>
+          <Y>517</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>1745</X>
+          <Y>423</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Association" first="0" second="22">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>1312</X>
+          <Y>616</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Aggregation</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="0" second="23">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>908</X>
+          <Y>886</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Aggregation</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="24" second="23">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Aggregation</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="25" second="4">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Aggregation</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="26" second="18">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>2445</X>
+          <Y>953</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Aggregation</AssociationType>
+      </Relationship>
+    </Relationships>
+  </ProjectItem>
+</Project>
